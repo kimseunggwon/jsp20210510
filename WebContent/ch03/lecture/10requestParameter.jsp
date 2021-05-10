@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h1> 첫번째</h1>
+<p>request parameter</p>
+<%= request.getParameter("name") %>
 </body>
 </html>

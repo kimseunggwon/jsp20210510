@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <h1> 첫번째</h1>
+ <%-- jsp 주석입니다 --%>
+ 주석은 출력 결과에 포함되지 않습니다.
+
 </body>
 </html>
