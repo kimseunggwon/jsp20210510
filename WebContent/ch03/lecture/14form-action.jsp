@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>request parameter</p>
-<%= request.getParameter("name") %> <br>
-<%= request.getParameter("age") %>
+<h3>action attribute</h3>
+
+<form action="14form-action2.jsp">
+      이름 : <input name="name" type="text"> <br>
+      나이 : <input name="age" type="number"> <br>
+      <input type="submit">
+</form>
 </body>
 </html>

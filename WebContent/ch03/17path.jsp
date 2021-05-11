@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>request parameter</p>
-<%= request.getParameter("name") %> <br>
-<%= request.getParameter("age") %>
+ <h1>17 파일</h1>
+ 
 </body>
 </html>

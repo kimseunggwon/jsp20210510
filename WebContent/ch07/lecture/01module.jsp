@@ -3,12 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+
+<%@ include file="/WEB-INF/subModules/bootstrapHeader.jsp" %>
+
 <title>Insert title here</title>
 </head>
 <body>
-<p>request parameter</p>
-<%= request.getParameter("name") %> <br>
-<%= request.getParameter("age") %>
+<div class="container">
+ <button class="btn btn-primary">Bootstrap</button>
+</div>
 </body>
 </html>

@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>request parameter</p>
-<%= request.getParameter("name") %> <br>
-<%= request.getParameter("age") %>
+     이름 <%= request.getParameter("name") %> <br>
+     나이 <%= request.getParameter("age") %>
+     
 </body>
 </html>

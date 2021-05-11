@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>request parameter</p>
-<%= request.getParameter("name") %> <br>
-<%= request.getParameter("age") %>
+    아이디 : <%= request.getParameter("id") %> <br>
+    암호 : <%= request.getParameter("pw") %> <br>
 </body>
 </html>
