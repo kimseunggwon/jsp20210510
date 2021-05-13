@@ -11,7 +11,7 @@
 <p>책 114쪽 표</p>
 <p>총 9개</p>
 
-<%--
+<%-- //jsp 기본 객체 8개
 request (HttpServletRequest)
 response (HttpServletResponse)
 pageContext (PageContext)
