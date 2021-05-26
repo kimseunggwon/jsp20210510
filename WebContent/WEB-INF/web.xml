@@ -11,8 +11,9 @@
   </welcome-file-list>
   
   <listener>
-  	<listener-class>ch20.AppListener01</listener-class>
+  	<listener-class>sample1.BoardAppListener</listener-class>
   </listener>
+  
   
   <context-param>
   	<param-name>jdbcdriver</param-name>
@@ -115,51 +116,25 @@
   	</url-pattern>
   </servlet-mapping>  
   
-  <servlet>
-  	<servlet-name>
-  		servlet15
-  	</servlet-name>
-  	<servlet-class>
-  		ch17.lecture.Servlet15Startup
-  	</servlet-class>
-  	<load-on-startup>2</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>
-  		servlet15
-  	</servlet-name>
-  	<url-pattern>
-  		/servlet15
-  	</url-pattern>
-  </servlet-mapping>
+ 
   
-  <servlet>
-  	<servlet-name>DBCPInit2</servlet-name>
-  	<servlet-class>ch17.textbook.DBCPInit2</servlet-class>
-  	<init-param>
-  		<param-name>jdbcdriver</param-name>
-  		<param-value>com.mysql.jdbc.Driver</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>jdbcUrl</param-name>
-  		<param-value>
-  		jdbc:mysql://localhost:3306/chap14?characterEncoding=utf8
-  		</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>dbUser</param-name>
-  		<param-value>jspexam</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>dbPass</param-name>
-  		<param-value>jsppw</param-value>
-  	</init-param>
-  	<init-param>
-  		<param-name>poolName</param-name>
-  		<param-value>chap14</param-value>
-  	</init-param>
-  	<load-on-startup>1</load-on-startup>
-  </servlet>
+ 
 
   
 </web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
