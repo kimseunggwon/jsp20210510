@@ -82,8 +82,8 @@ VALUES
  '2021-06-02 11:07:30');
  SELECT * FROM MyTable6;
  
- -- exercise3
  
+ -- exercise3
  
 CREATE TABLE Persons
  (
@@ -94,7 +94,8 @@ CREATE TABLE Persons
   City varchar(255) 
 );
  
- 
+ -- exercise4
+DROP TABLE Persons;
  
 
 
