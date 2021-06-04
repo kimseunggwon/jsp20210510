@@ -17,7 +17,7 @@ public class MemberDao {
 	private String password;
 	
 	public MemberDao() {
-		this.url = "jdbc:mysql://13.125.118.27/test2";
+		this.url = "jdbc:mysql://3.36.85.50/test2";
 		this.user = "root";
 		this.password = "wnddkdwjdqhcjfl1";
 		
