@@ -33,12 +33,13 @@ INSERT INTO MyTable18
 VALUES
 ('korea', 'kim');
 
+
 DELETE FROM MyTable17
 WHERE id = 'donald';
 
 DELETE FROM MyTable18
 WHERE t17Id = 'donald';
-
+MemberMember
 
 
 
