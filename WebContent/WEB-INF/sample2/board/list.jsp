@@ -16,7 +16,7 @@
 <s2:navbar></s2:navbar>
 <div class="container">
 	<h1>글 목록</h1>
-	
+	<s2:message></s2:message>
 	<table class="table">
 		<thead>
 			<tr>
@@ -28,15 +28,16 @@
 		</thead>
 	
 		<tbody>
+		   <%-- 반복문 | 아이템은 객체(list,map>이다--%>
 			<c:forEach items="${boards }" var="board">
 				<tr>
-					<td>${board.id }</td>
+					<td>${board.boardId }</td>
 					<td>
-					 <a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.id}"> 
+					 <a href="<%= request.getContextPath() %>/sample2/board/detail?id=${board.boardId}"> 
 					    ${board.title }
 					 </a>
 					</td>
-					<td>${board.memberIdHidden }</td>
+					<td>${board.memberName }</td>
 					<td>${board.timeAgo }</td>
 				</tr>
 			</c:forEach>

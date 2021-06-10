@@ -1,4 +1,4 @@
-package sample2.controller.member;
+package sample2.controller.comment;
 
 import java.io.IOException;
 
@@ -7,33 +7,31 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import sample2.bean.Member;
-import sample2.member.MemberRemoveService;
+import sample2.bean.Comment;
+import sample2.service.comment.CommentService;
 
+// 5교시
 /**
- * Servlet implementation class Sample2RemoveServlet
+ * Servlet implementation class Sample2CommentModifyServlet
  */
-@WebServlet("/sample2/member/remove")
-public class Sample2RemoveServlet extends HttpServlet {
+@WebServlet("/sample2/comment/modify")
+public class Sample2CommentModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private MemberRemoveService service = null;
        
+	private CommentService service;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sample2RemoveServlet() {
+    public Sample2CommentModifyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
     
     @Override
     public void init() throws ServletException {
-    	// TODO Auto-generated method stub
     	super.init();
-    	this.service = new MemberRemoveService();
+    	service = new CommentService();
     }
 
 	/**
@@ -48,18 +46,28 @@ public class Sample2RemoveServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		Member member = (Member) session.getAttribute("userLogined");
+	    //파라미터 수집	
+		String idStr = request.getParameter("commentId");
+		String commentStr = request.getParameter("comment");
+		String boardId = request.getParameter("boardId");
 		
-		this.service.remove(member.getId());
+		int id = Integer.parseInt(idStr);
 		
-		session.invalidate();
+		// 객체 담고
+		Comment comment = new Comment();
+		comment.setId(id);
+		comment.setComment(commentStr);
 		
-		String path = request.getContextPath() + "/sample2/main";
+		service.modify(comment);
+		
+		//포워드
+		String path = request.getContextPath() + "/sample2/board/detail?id=" + boardId;
 		response.sendRedirect(path);
 	}
 
 }
+
+
 
 
 
