@@ -7,9 +7,17 @@ public class BoardDto {
 	private int boardId;
 	private String title;
 	private String body;
-	private String memberName; 
-	private String memberId;	
+	private String memberName;
+	private String memberId;
+	private int numberOfComment;
 	private Timestamp inserted;
+	
+	public int getNumberOfComment() {
+		return numberOfComment;
+	}
+	public void setNumberOfComment(int numberOfComment) {
+		this.numberOfComment = numberOfComment;
+	}
 	
 	
 	

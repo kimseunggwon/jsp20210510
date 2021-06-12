@@ -1,9 +1,10 @@
 package sample2.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.Connection; //연걸 
+
+import java.sql.DriverManager; //db연걸
+import java.sql.PreparedStatement; //설정및 실행
+import java.sql.ResultSet; //결과
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -237,6 +238,94 @@ public class MemberDao {
 		}
 		
 		return false;
+	}
+
+	public Member getMember2(String id) {
+		String sql = "SELECT m.id,"
+				+ "          m.password,"
+				+ "          m.name,"
+				+ "          m.birth,"
+				+ "          m.inserted,"
+				+ "          count(DISTINCT b.id) numberOfBoard,"
+				+ "          count(DISTINCT c.id) numberOfComment "
+				+ "FROM Member m LEFT JOIN Board b ON m.id = b.memberId "
+				+ "     LEFT JOIN Comment c ON m.id = c.memberId "
+				+ "WHERE m.id = ?";
+		
+		ResultSet rs = null;
+		try (
+			Connection con = DriverManager.getConnection(url, user, password);
+			PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				Member member = new Member();
+				member.setId(rs.getString(1));
+				member.setPassword(rs.getString(2));
+				member.setName(rs.getString(3));
+				member.setBirth(rs.getDate(4));
+				member.setInserted(rs.getTimestamp(5));
+				member.setNumberOfBoard(rs.getInt(6));
+				member.setNumberOfComment(rs.getInt(7));
+				
+				return member;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return null;
+	}
+	
+	public Member getMember(String id, Connection con) {
+		String sql = "SELECT id, password, name, birth, inserted "
+				+ "FROM Member "
+				+ "WHERE id = ?";
+		
+		ResultSet rs = null;
+		try (
+			PreparedStatement pstmt = con.prepareStatement(sql);
+				) {
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				Member member = new Member();
+				member.setId(rs.getString(1));
+				member.setPassword(rs.getString(2));
+				member.setName(rs.getString(3));
+				member.setBirth(rs.getDate(4));
+				member.setInserted(rs.getTimestamp(5));
+				
+				return member;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return null;
 	}
 	
 }
